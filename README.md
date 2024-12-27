@@ -44,11 +44,19 @@ We will use NeMo interfaces to export models for inference with [TensorRT-LLM](h
 
 - Code profiling
 - Logging training and tuning runs with [Weights & Biases](https://wandb.ai/site)
+- Model alignment with [NeMo Aligner](https://github.com/NVIDIA/NeMo-Aligner)
 - Model output control with [NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails)
 - Agents as DAGs with [LangGraph](https://www.langchain.com/langgraph)
 - Agent traces with [LangSmith](https://www.langchain.com/langsmith)
 - Containerization with Docker
 - System prompt design
+
+## Core Dependencies
+
+- [Megatron Core](https://github.com/NVIDIA/Megatron-LM)
+- [APEX](https://github.com/NVIDIA/apex)
+- [Transformer Engine](https://github.com/NVIDIA/TransformerEngine)
+- [Flash Attention](https://github.com/Dao-AILab/flash-attention)
 
 # Source Code Concepts
 
