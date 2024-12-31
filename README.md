@@ -54,7 +54,7 @@ We will use NVIDIA and Meta models including, but not limited to:
 - Pytorch 2.2.1
 
 > [!TIP]
-> See https://nemo.jxtngx.ai/cookbook/hardware for more regarding VRAM requirements of particular models
+> See https://nemo.theosis.ai/cookbook/hardware for more regarding VRAM requirements of particular models
 
 # Core Dependencies
 
