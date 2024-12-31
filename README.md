@@ -158,8 +158,10 @@ python finetune_llama3_8b.py
 </table>
 
 > [!IMPORTANT]
-> to run the script in the NVIDIA Launchable, use the following command in terminal: <br/>
-> `python /workspace/finetune_llama3_8b.py` or `python /workspace/pretrain_nemotron3_4b.py`
+> regarding the NVIDIA Launchable, use the following command in terminal to run the: <br/>
+> tuning: `python /workspace/finetune_llama3_8b.py` <br/>
+> training: `python /workspace/pretrain_nemotron3_4b.py` <br/>
+> to avoid data storage costs, be certain to delete the instance once the demo is complete 
 
 ## NeMo References
 
