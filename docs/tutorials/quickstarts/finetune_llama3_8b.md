@@ -23,7 +23,7 @@ As such, we should be prepared to troubleshoot errors that may lead us into the 
 If you wish to run the quickstart, and then read the accompanying commentary that is provided below, we can run the following in terminal:
 
 ```bash
-bash install_requirements.sh
+bash install_nemo_requirements.sh
 python scripts/tutorials/nemo/llama3-finetuning-quickstart.py
 ```
 

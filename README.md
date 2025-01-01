@@ -1,91 +1,50 @@
-# NeMo Lab
+# Tuning Lab
 
 > [!IMPORTANT]
-> NeMo Lab is under active development
+> Tuning Lab is under active development
 
-NeMo Lab is an example template for Generative AI with [NVIDIA NeMo 2.0](https://www.nvidia.com/en-us/ai-data-science/products/nemo/).
-
-[NVIDA NeMo](https://www.nvidia.com/en-us/ai-data-science/products/nemo/) is an accelerated end-to-end platform that is flexible and production ready. NeMo is comprised of several component frameworks which enable teams to build, customize, and deploy Generative AI solutions for:
-
-- large language models
-- vision language models
-- video models
-- speech models
-
-> [!TIP]
-> Get started with the quick start [tutorials](docs/tutorials/quickstarts) and [scripts](scripts/tutorials/nemo)
-
-# Focus
-
-NeMo Lab is inspired by [`NeMo tutorials`](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/starthere/tutorials.html) and focuses on using NeMo to tune generative models.
-
-## Additional Concepts
-
-- Code profiling
-- Logging training and tuning runs with [Weights & Biases](https://wandb.ai/site)
-- Model alignment with [NeMo Aligner](https://github.com/NVIDIA/NeMo-Aligner)
-- Model output control with [NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails)
-- Agents as DAGs with [LangGraph](https://www.langchain.com/langgraph)
-- Agent traces with [LangSmith](https://www.langchain.com/langsmith)
-- Containerization with Docker
-- System prompt design
-
-# Source Code Concepts
-
-The source code found in `src/nemo_lab` is used to provide examples of implementing concepts "from-scratch" with NeMo. For instance – how might we add a custom model, or our own training recipe given base interfaces and mixins found within the framework.
-
-> [!NOTE]
-> The current focus for the source code is implementing support for Llama 3.2 variants
+Tuning Lab contains examples for NVIDIA's [NeMo 2.0](https://www.nvidia.com/en-us/ai-data-science/products/nemo/) and Meta's [torchtune](https://github.com/pytorch/torchtune).
 
 # Models
 
 We will use NVIDIA and Meta models including, but not limited to:
 
 - NVIDIA Llama variants, Mistral variants, Megatron distillations, and Minitron
-- NVIDIA embedding, reranking, and retrieval models
-- NVIDIA Cosmos tokenizers
-- NeMo compatible Meta Llama variants
+- Meta Llama variants
 
-# System Requirements
+# User Account Requirements
+
+- [NVIDIA Developer Program](https://developer.nvidia.com/developer-program)
+- [NVIDIA NGC](https://catalog.ngc.nvidia.com/) 
+- [Hugging Face Hub](https://huggingface.co/) 
+- [Weights & Biases](https://wandb.ai/site)
+
+# NeMo Instructions
+
+## System Requirements
 
 - a CUDA compatible OS and device (GPU) with at least 48GB of VRAM (e.g. an L40S).
 - CUDA 12.1
 - Python 3.10.10
 - Pytorch 2.2.1
 
-> [!TIP]
-> See https://nemo.theosis.ai/cookbook/hardware for more regarding VRAM requirements of particular models
-
-# Core Dependencies
+## Dependencies 
 
 - [Megatron Core](https://github.com/NVIDIA/Megatron-LM)
 - [APEX](https://github.com/NVIDIA/apex)
 - [Transformer Engine](https://github.com/NVIDIA/TransformerEngine)
 - [Flash Attention](https://github.com/Dao-AILab/flash-attention)
 
-# User Account Requirements
-
-- [NVIDIA Developer Program](https://developer.nvidia.com/developer-program)
-- [NVIDIA NGC](https://catalog.ngc.nvidia.com/) for NeMo and TensorRT-LLM containers
-- [build.nvidia.com](https://build.nvidia.com/) for API calls to NVIDIA hosted endpoints
-- [Hugging Face Hub](https://huggingface.co/) for model weights and datasets
-- [LangSmith](https://www.langchain.com/) for tracing
-- [Weights & Biases](https://wandb.ai/site) for experiment management during finetuning
-
-# Setup
-
-> [!TIP]
-> Get started with the quick start [tutorials](docs/tutorials/quickstarts) and [scripts](scripts/tutorials/nemo)
 
 ## On Host (local, no container)
 
 To prepare a development environment, please run the following in terminal:
 
 ```sh
-bash install_requirements.sh
+bash install_nemo_requirements.sh
 ```
 
-Doing so will install `nemo_lab` along with the `nemo_run`, `megatron_core 0.10.0rc0`, and the `nvidia/apex` PyTorch extension. 
+Doing so will install `tuning_lab` along with `nemo_run`, `megatron_core 0.10.0rc0`, and the `nvidia/apex` PyTorch extension. 
 
 > [!NOTE]
 > `megatron_core 0.10.0rc0` is required for compatibility with NeMo 2.0
@@ -126,21 +85,19 @@ python finetune_llama3_8b.py
 > For keys, see: https://huggingface.co/docs/hub/en/security-tokens <br/>
 > For Llama 3 8B access, see: https://huggingface.co/meta-llama/Meta-Llama-3-8B
 
-# Resources
-
 ## Quickstart Images and Containers
 
 <table>
     <tr>
         <th style="font-size: small;">Quickstart</th>
-        <th style="font-size: small;">Docker Image</th>
-        <th style="font-size: small;">NVIDIA Launchable</th>
-        <th style="font-size: small;">Lightning Studio</th>
-        <th style="font-size: small;">Modal App</th>
-        <th style="font-size: small;">HF Space</th>
+        <th style="font-size: small;">Docker</th>
+        <th style="font-size: small;">NVIDIA</th>
+        <th style="font-size: small;">Lightning</th>
+        <th style="font-size: small;">Modal</th>
+        <th style="font-size: small;">Hugging Face</th>
     </tr>
     <tr>
-        <td>Pretrain</td>
+        <td>NeMo Pretrain</td>
         <td><a target="_blank" href="https://hub.docker.com/repository/docker/jxtngx/nemo-lab/tags/train/sha256-e056f7988b875676e01a0ba2ae8fa4623ae28f0295a012f809e98158f413c2a2"><img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff"/></a></td>
         <td><a target="_blank" href="https://console.brev.dev/launchable/deploy?launchableID=env-2qcfxLVNihSWulFbpOYJmyy8kBB"><img src="https://uohmivykqgnnbiouffke.supabase.co/storage/v1/object/public/landingpage/brevdeploynavy.svg"/></a></td>
         <td><a target="_blank" href="https://lightning.ai/jxtngx/studios/pretrain-nemotron-3-4b-with-nvidia-nemo"><img src="https://pl-bolts-doc-images.s3.us-east-2.amazonaws.com/app-2/studio-badge.svg" alt="Open In Studio"/></a></td>    
@@ -148,7 +105,7 @@ python finetune_llama3_8b.py
         <td>–</td>
     </tr>
     <tr>
-        <td>Finetune</td>
+        <td>NeMo Finetune</td>
         <td><a target="_blank" href="https://hub.docker.com/repository/docker/jxtngx/nemo-lab/tags/tune/sha256-29c27b9c41d633f48ed92aec40e33438b84fb3751e764df4655c9b2e697650d7"><img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff"/></a></td>
         <td><a target="_blank" href="https://console.brev.dev/launchable/deploy?launchableID=env-2qcfslJNcRDEkHNGfhpW625D2SN"><img src="https://uohmivykqgnnbiouffke.supabase.co/storage/v1/object/public/landingpage/brevdeploynavy.svg"/></a></td>
         <td><a target="_blank" href="https://lightning.ai/jxtngx/studios/finetune-llama-3-8b-with-nvidia-nemo"><img src="https://pl-bolts-doc-images.s3.us-east-2.amazonaws.com/app-2/studio-badge.svg" alt="Open In Studio"/></a></td>
@@ -163,7 +120,7 @@ python finetune_llama3_8b.py
 > training: `python /workspace/pretrain_nemotron3_4b.py` <br/>
 > to avoid data storage costs, be certain to delete the instance once the demo is complete 
 
-## NeMo References
+## References
 
 - [NeMo documentation](https://docs.nvidia.com/nemo-framework/user-guide/latest/overview.html)
 - [NeMo tutorials](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/starthere/tutorials.html)
@@ -173,3 +130,29 @@ python finetune_llama3_8b.py
 - [CPU Offloading](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/features/optimizations/cpu_offloading.html)
 - [Communication Overlap](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/features/optimizations/communication_overlap.html)
 
+# Torchtune Instructions
+
+## System Requirements
+
+- a torch compatible development environment and appropriate hardware for a target model
+
+## Quickstart Images and Containers
+
+<table>
+    <tr>
+        <th style="font-size: small;">Quickstart</th>
+        <th style="font-size: small;">Docker</th>
+        <th style="font-size: small;">NVIDIA</th>
+        <th style="font-size: small;">Lightning</th>
+        <th style="font-size: small;">Modal</th>
+        <th style="font-size: small;">Hugging Face</th>
+    </tr>
+    <tr>
+        <td>NeMo Pretrain</td>
+        <td>–</td>
+        <td>–</td>   
+        <td>–</td>
+        <td>–</td>
+        <td>–</td>
+    </tr>
+</table>
